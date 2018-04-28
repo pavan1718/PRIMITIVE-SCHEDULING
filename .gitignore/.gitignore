@@ -1,0 +1,106 @@
+////////////////PRIMITIVE SCHEDULING ALGO.
+
+
+1. #include<stdio.h>
+2.  #include<conio.h> 
+3. struct process{ 
+4.  int p,a_t,b_t,p_no,b,flag; 
+5.  }a[100]; 
+6. void sort(int n) 
+7. { 
+8.   int i,j; 
+9.   struct process p; 
+10.   for(i=0;i<n-1;i++) 
+11.  { 
+12.   for(j=0;j<n-i-1;j++) 
+13.    { 
+14.    if((a[j].a_t>r[j+1].a_t)||((a[j].a_t==a[j+1].a_t) && (a[j].p>a[j+1].p))) 
+15.   { 
+16.   p=a[j+1]; 
+17.     a[j+1]=a[j]; 
+18.     a[j]=p; 
+19.    } 
+20.    } 
+21.   } 
+22.  } 
+23.  void display(int n) 
+24. { 
+25.   int i; 
+26.  printf("Premptive priority scheduling processes.\n"); 
+27.   printf("Process\t\tArrival time\tPriority\tBurst time\n"); 
+28.   for(i=0;i<n;i++) 
+29.   { 
+30.   printf("P%d\t\t%d\t\t%d\t\t%d\n",a[i].p_no,a[i].a_t,a[i].p,a[i].b_t); 
+31.   } 
+32.  } 
+33.  int main() 
+34. { 
+35. struct process; 
+36.  int i,j,n,c,e=0,t=0,s; 
+37.   float t_t=0,w_t=0,avg_wtt=0,avg_t_t=0; 
+38.   printf("Enter number of processes."); 
+39.  scanf("%d",&n); 40.  for(i=0;i<n;i++) ;
+40. { 
+41.   printf("Enter process %d priority.",i+1); 
+42.    scanf("%d",&a[i].p); 
+43.    printf("Enter its arrival time."); 
+44.  scanf("%d",&a[i].a_t); 
+45. printf("Enter its burst time."); 
+46.    scanf("%d",&a[i].b_t); 
+47. a[i].b=a[i].b_t; 
+48.    a[i].p_no=i+1; 
+49.   } 
+50. sort(n); 
+51.   display(n); 
+52.              for(int i=0;i<n;i++) 
+53.   { 
+54.  a[i]=a[i].b_t; 
+55.     } 
+56.     a[9].b_t = 9999; 
+57.       for(t = a[0].a_t; t <= b_t+1) 
+58.      { 
+59.        peak = 9; 
+60.       for(i=0;i<n;i++) 
+61.         { 
+62.       if(a[i].a_t <= t && a[i].b_t < a[peak].b_t && a[i].flag != 1) 
+63.                  { 
+64.                        peak = i; 
+65.                 } 
+66.                 if(a[peak].b_t==0 && a[i].flag != 1) 
+67.          { 
+68.           a[i].flag = 1; 
+69.           a[peak].ct=t;a[peak].b_t=9999; 
+70.        printf("\nthe process P%d completes in %d\n",a[i].p_no,a[peak].ct); 
+71.          } 
+72.     } 
+73.        if(t%2==0) 
+74.      { 
+75.       for(i=0;i<n;i++) 
+76.        { 
+77.        if(a[i].p>a[peak].p) 
+78.        { 
+79.        a[i]-=1; 
+80.     } 
+81.      } 
+82. } 
+83.         t++; 
+84.      (a[peak].b_t)--; 
+85.        } 
+86.     printf("\n-----------------------------------\n"); 
+87.        for(i=0;i<n;i++) 
+88.       { 
+89.        a[i].t_t=(a[i].ct)-(a[i].a_t); 
+90.    avg_t_t=avg_t_t+a[i].t_t; 
+91.         a[i].w_t=((a[i].t_t-a[i]); 
+92.    avg_w_t=avg_w_t+a[i].w_t; 
+93.     }  
+94.          printf("PNO\tAT\tCT\tTA\tWTt\n"); 
+95.          printf("-----------------------------------\n"); 
+96.          for(i=0;i<n;i++) 
+97.       { 
+98.         printf("P%d\t%d\t%d\t%d\t%d\n",a[i].p_no,a[i].a_t,a[i].ct,a[i].t_t,a[i].w_t);   
+99.      } 
+100.       printf("\n-----------------------------------\n"); 
+101.     printf("Average Turn around Time: %.2f\t\n\n",avg_t_t/n); 
+102.      printf("Average Waiting Time :\t %.2f\t\n",avg_w_t/n);     
+103. } 
